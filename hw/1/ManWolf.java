@@ -1,5 +1,11 @@
-class ManWolf{  
+/* 
+ *  Author: Andrew DiBella 
+ *  Man Wolf cabbage problem DFA 
+ *  Delta table implementation 
+ * 
+ */
 
+class ManWolf{  
   private static final int q0  = 0;
   private static final int q1  = 1;
   private static final int q2  = 2;
@@ -27,7 +33,6 @@ class ManWolf{
   boolean isAccepted(){
     return state == q9;
   }
-
   void process(String str){
     for (int i = 0; i < str.length(); i++){
       char c = str.charAt(i);
