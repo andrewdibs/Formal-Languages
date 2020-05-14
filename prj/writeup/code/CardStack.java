@@ -1,5 +1,3 @@
-package code;
-
 class CardStack{ 
   
   private CardStackNode top;
@@ -10,18 +8,27 @@ class CardStack{
     top = null;
   }
 
-  void push(Card card){
-    CardStackNode newCard = new CardStackNode(card, top);
+  void push(Card c){
+    CardStackNode newCard = new CardStackNode(c, top);
     newCard.setNext(top);
     top = newCard;
     depth++;
   }
 
-  void pop(){
+  void push(CardStackNode card){
+    card.setNext(top);
+    top = card;
+    depth++;
+  }
+
+  Card pop(){
     if (depth > 0){
+      Card popper = top.getCard();
       top = top.getNext();
       depth--;
+      return popper;
     }
+    return null;
   }
 
   Card peek(){
@@ -30,6 +37,9 @@ class CardStack{
 
   boolean isEmpty(){
     return depth == 0;
+  }
+  int getDepth(){
+    return depth;
   }
 
 }
